@@ -27,12 +27,13 @@ Partial Class RepoCotacao
         '
         'RViewer
         '
-        Me.RViewer.ActiveViewIndex = -1
+        Me.RViewer.ActiveViewIndex = 0
         Me.RViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.RViewer.Cursor = System.Windows.Forms.Cursors.Default
         Me.RViewer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RViewer.Location = New System.Drawing.Point(0, 0)
         Me.RViewer.Name = "RViewer"
+        Me.RViewer.ReportSource = "C:\Projetos\vbReports\carne.rpt"
         Me.RViewer.Size = New System.Drawing.Size(800, 450)
         Me.RViewer.TabIndex = 0
         '

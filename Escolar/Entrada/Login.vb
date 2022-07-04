@@ -159,8 +159,6 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'MsgBox(Funcoes.RemoverAcentuacao("ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ"))
-
         Dim myprocesses As Process() = Process.GetProcessesByName(Application.ProductName.Trim & "*") 'obter processos com o nome X
         If myprocesses.Length > 0 Then
             MsgBox(Application.ProductName & " já esta rodando no seu PC.", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "Atenção")

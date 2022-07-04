@@ -1,5 +1,4 @@
-﻿Imports System.Collections
-Imports System.Net.Mail
+﻿Imports System.Net.Mail
 
 Public Class SendEmail
     Private Attachment As System.Net.Mail.Attachment

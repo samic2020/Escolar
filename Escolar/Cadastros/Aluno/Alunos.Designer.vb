@@ -1207,12 +1207,12 @@ Partial Class Alunos
     Friend WithEvents Label22 As Label
     Friend WithEvents aAlergias As ComboBox
     Friend WithEvents Label23 As Label
-    Friend WithEvents aAlergiasLista As EditListBox
+    Friend WithEvents aAlergiasLista As Escolar.EditListBox
     Friend WithEvents aAlergiasListaDel As Button
     Friend WithEvents aAlergiasListaAdc As Button
     Friend WithEvents aObsListaDel As Button
     Friend WithEvents aObsListaAdc As Button
-    Friend WithEvents aObsLista As EditListBox
+    Friend WithEvents aObsLista As Escolar.EditListBox
     Friend WithEvents Label24 As Label
     Friend WithEvents aPaiEmailDel As Button
     Friend WithEvents aPaiEmailAdc As Button
