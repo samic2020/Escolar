@@ -52,24 +52,24 @@ Partial Class Principal
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Relogio = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.ClockBar.SuspendLayout()
         CType(Me.mLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,11 +149,11 @@ Partial Class Principal
         Me.ClockBar.BackgroundImage = CType(resources.GetObject("ClockBar.BackgroundImage"), System.Drawing.Image)
         Me.ClockBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClockBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.ClockBar.Controls.Add(Me.SoftData)
         Me.ClockBar.Controls.Add(Me.SoftPontoMinutos)
+        Me.ClockBar.Controls.Add(Me.SoftData)
         Me.ClockBar.Controls.Add(Me.SoftPontoHora)
-        Me.ClockBar.Controls.Add(Me.SoftSegundos)
         Me.ClockBar.Controls.Add(Me.SoftMinutos)
+        Me.ClockBar.Controls.Add(Me.SoftSegundos)
         Me.ClockBar.Controls.Add(Me.SoftHora)
         Me.ClockBar.ForeColor = System.Drawing.Color.White
         Me.ClockBar.Location = New System.Drawing.Point(633, 27)
@@ -165,7 +165,7 @@ Partial Class Principal
         'SoftData
         '
         Me.SoftData.BackColor = System.Drawing.Color.Transparent
-        Me.SoftData.Font = New System.Drawing.Font("digital display tfb", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SoftData.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
         Me.SoftData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SoftData.Location = New System.Drawing.Point(-2, 28)
         Me.SoftData.Name = "SoftData"
@@ -179,10 +179,10 @@ Partial Class Principal
         '
         Me.SoftPontoMinutos.AutoSize = True
         Me.SoftPontoMinutos.BackColor = System.Drawing.Color.Transparent
-        Me.SoftPontoMinutos.Font = New System.Drawing.Font("digital display tfb", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SoftPontoMinutos.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.75!)
         Me.SoftPontoMinutos.Location = New System.Drawing.Point(101, 1)
         Me.SoftPontoMinutos.Name = "SoftPontoMinutos"
-        Me.SoftPontoMinutos.Size = New System.Drawing.Size(17, 30)
+        Me.SoftPontoMinutos.Size = New System.Drawing.Size(19, 29)
         Me.SoftPontoMinutos.TabIndex = 28
         Me.SoftPontoMinutos.Text = ":"
         Me.SoftPontoMinutos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -191,10 +191,10 @@ Partial Class Principal
         '
         Me.SoftPontoHora.AutoSize = True
         Me.SoftPontoHora.BackColor = System.Drawing.Color.Transparent
-        Me.SoftPontoHora.Font = New System.Drawing.Font("digital display tfb", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SoftPontoHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.75!)
         Me.SoftPontoHora.Location = New System.Drawing.Point(60, 1)
         Me.SoftPontoHora.Name = "SoftPontoHora"
-        Me.SoftPontoHora.Size = New System.Drawing.Size(17, 30)
+        Me.SoftPontoHora.Size = New System.Drawing.Size(19, 29)
         Me.SoftPontoHora.TabIndex = 27
         Me.SoftPontoHora.Text = ":"
         Me.SoftPontoHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -202,10 +202,10 @@ Partial Class Principal
         'SoftSegundos
         '
         Me.SoftSegundos.BackColor = System.Drawing.Color.Transparent
-        Me.SoftSegundos.Font = New System.Drawing.Font("digital display tfb", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SoftSegundos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.SoftSegundos.Location = New System.Drawing.Point(113, 2)
         Me.SoftSegundos.Name = "SoftSegundos"
-        Me.SoftSegundos.Size = New System.Drawing.Size(36, 29)
+        Me.SoftSegundos.Size = New System.Drawing.Size(34, 29)
         Me.SoftSegundos.TabIndex = 26
         Me.SoftSegundos.Text = "00"
         Me.SoftSegundos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -213,10 +213,10 @@ Partial Class Principal
         'SoftMinutos
         '
         Me.SoftMinutos.BackColor = System.Drawing.Color.Transparent
-        Me.SoftMinutos.Font = New System.Drawing.Font("digital display tfb", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SoftMinutos.Location = New System.Drawing.Point(73, 2)
+        Me.SoftMinutos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.SoftMinutos.Location = New System.Drawing.Point(71, 2)
         Me.SoftMinutos.Name = "SoftMinutos"
-        Me.SoftMinutos.Size = New System.Drawing.Size(36, 29)
+        Me.SoftMinutos.Size = New System.Drawing.Size(35, 29)
         Me.SoftMinutos.TabIndex = 25
         Me.SoftMinutos.Text = "00"
         Me.SoftMinutos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -224,10 +224,10 @@ Partial Class Principal
         'SoftHora
         '
         Me.SoftHora.BackColor = System.Drawing.Color.Transparent
-        Me.SoftHora.Font = New System.Drawing.Font("digital display tfb", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SoftHora.Location = New System.Drawing.Point(32, 2)
+        Me.SoftHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.SoftHora.Location = New System.Drawing.Point(33, 2)
         Me.SoftHora.Name = "SoftHora"
-        Me.SoftHora.Size = New System.Drawing.Size(36, 29)
+        Me.SoftHora.Size = New System.Drawing.Size(30, 29)
         Me.SoftHora.TabIndex = 24
         Me.SoftHora.Text = "00"
         Me.SoftHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -405,25 +405,14 @@ Partial Class Principal
         Me.Panel2.TabIndex = 25
         Me.Panel2.Visible = False
         '
-        'Label1
+        'Label8
         '
-        Me.Label1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label1.Location = New System.Drawing.Point(3, 2)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(256, 25)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Turmas 2022"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 34)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(152, 13)
-        Me.Label6.TabIndex = 26
-        Me.Label6.Text = "1º Período - Manhã - Turma: A"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(223, 34)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(19, 13)
+        Me.Label8.TabIndex = 28
+        Me.Label8.Text = "23"
         '
         'Label7
         '
@@ -434,14 +423,25 @@ Partial Class Principal
         Me.Label7.TabIndex = 27
         Me.Label7.Text = "40"
         '
-        'Label8
+        'Label6
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(223, 34)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(19, 13)
-        Me.Label8.TabIndex = 28
-        Me.Label8.Text = "23"
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(3, 34)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(152, 13)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "1º Período - Manhã - Turma: A"
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label1.Location = New System.Drawing.Point(3, 2)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.Label1.Size = New System.Drawing.Size(256, 25)
+        Me.Label1.TabIndex = 26
+        Me.Label1.Text = "Turmas 2022"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Panel3
         '
@@ -455,6 +455,24 @@ Partial Class Principal
         Me.Panel3.Size = New System.Drawing.Size(262, 153)
         Me.Panel3.TabIndex = 29
         Me.Panel3.Visible = False
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(229, 47)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(13, 13)
+        Me.Label13.TabIndex = 30
+        Me.Label13.Text = "3"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 47)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(80, 13)
+        Me.Label10.TabIndex = 29
+        Me.Label10.Text = "Contas a Pagar"
         '
         'Label9
         '
@@ -485,24 +503,6 @@ Partial Class Principal
         Me.Label12.Text = "Caixa 2022"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 47)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(80, 13)
-        Me.Label10.TabIndex = 29
-        Me.Label10.Text = "Contas a Pagar"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(229, 47)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(13, 13)
-        Me.Label13.TabIndex = 30
-        Me.Label13.Text = "3"
-        '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.Label20)
@@ -517,6 +517,24 @@ Partial Class Principal
         Me.Panel4.Size = New System.Drawing.Size(262, 153)
         Me.Panel4.TabIndex = 31
         Me.Panel4.Visible = False
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(145, 47)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(13, 13)
+        Me.Label20.TabIndex = 32
+        Me.Label20.Text = "3"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(205, 34)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(49, 13)
+        Me.Label19.TabIndex = 31
+        Me.Label19.Text = "5.850,33"
         '
         'Label14
         '
@@ -564,24 +582,6 @@ Partial Class Principal
         Me.Label18.TabIndex = 26
         Me.Label18.Text = "Financeiro 2022"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(205, 34)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(49, 13)
-        Me.Label19.TabIndex = 31
-        Me.Label19.Text = "5.850,33"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(145, 47)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(13, 13)
-        Me.Label20.TabIndex = 32
-        Me.Label20.Text = "3"
         '
         'Principal
         '

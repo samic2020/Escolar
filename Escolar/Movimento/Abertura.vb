@@ -251,33 +251,37 @@ Public Class Abertura
             pesq = True
         End If
 
-        If Not PesquisaAlunoAno(idAluno) Then
-            Dim vrMensal As Decimal = PegaValorMensal(tCursos.SelectedItem.ToString, tSeries.SelectedItem.ToString)
-            If vrMensal <= 0D Then
-                MsgBox("Impossivel lançar o aluno!" + vbNewLine + "A tabela com valor da mensalidade esta vazia.", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção!")
-                Return
-            End If
+        If Not PesquisaAlunoGrade(idAluno) Then
+            If Not PesquisaAlunoAno(idAluno, tAno.Value) Then
+                Dim vrMensal As Decimal = PegaValorMensal(tCursos.SelectedItem.ToString, tSeries.SelectedItem.ToString)
+                If vrMensal <= 0D Then
+                    MsgBox("Impossivel lançar o aluno!" + vbNewLine + "A tabela com valor da mensalidade esta vazia.", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Atenção!")
+                    Return
+                End If
 
-            Dim insertSQL As String = "INSERT INTO `turmas_alunos` (`idturma`, `idaluno`, `ano`) VALUES (@idturma, @idaluno, @ano);"
-            Dim param As Object()() = {
+                Dim insertSQL As String = "INSERT INTO `turmas_alunos` (`idturma`, `idaluno`, `ano`) VALUES (@idturma, @idaluno, @ano);"
+                Dim param As Object()() = {
                     ({"@idturma", idTurma}),
                     ({"@idaluno", idAluno}),
                     ({"@ano", tAno.Value})
                 }
-            If dbMain.ExecuteCmd(insertSQL, param) Then
-                Dim tmp As New Lancamento()
-                tmp.AlunoId = idAluno
-                tmp.TurmaId = idTurma
-                tmp.DataMat = Now
-                tmp.ValorMat = vrMensal
-                tmp.Inicio = Month(Now)
-                tmp.ShowDialog()
+                If dbMain.ExecuteCmd(insertSQL, param) Then
+                    Dim tmp As New Lancamento()
+                    tmp.AlunoId = idAluno
+                    tmp.TurmaId = idTurma
+                    tmp.DataMat = Now
+                    tmp.ValorMat = vrMensal
+                    tmp.Inicio = Month(Now)
+                    tmp.ShowDialog()
 
-                MsgBox("Inserido com sucesso.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção!")
-                TurmaList()
+                    MsgBox("Inserido com sucesso.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção!")
+                    TurmaList()
+                End If
+            Else
+                MsgBox("Aluno já esta lançado em outra turma neste ano letivo!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
             End If
         Else
-            MsgBox("Aluno já esta lançado nesta turma este ano!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
+            MsgBox("Aluno já esta lançado nesta turma este ano letivo!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Atenção")
         End If
 
         If pesq Then idAluno = -1
@@ -328,7 +332,17 @@ Public Class Abertura
         DataGridViewTurma.Focus()
     End Sub
 
-    Private Function PesquisaAlunoAno(AlunoId As Integer) As Boolean
+    Private Function PesquisaAlunoAno(AlunoId As Integer, AnoLetivo As Integer) As Boolean
+        Dim retorno As Boolean = False
+        Dim selectSQL = "SELECT * FROM `turmas_alunos` WHERE `idaluno` = @idaluno AND `ano` = @ano LIMIT 1;"
+        Dim conn As MySqlConnection = dbMain.OpenDB(Globais.unidade, Globais.user, Globais.pwd, Globais.databaseName)
+        Dim vrs As MySqlDataReader = dbMain.OpenTable(conn, selectSQL, {({"@idaluno", AlunoId}), ({"@ano", AnoLetivo})})
+        retorno = vrs.HasRows
+        dbMain.CloseAll(conn, vrs)
+        Return retorno
+    End Function
+
+    Private Function PesquisaAlunoGrade(AlunoId As Integer) As Boolean
         Dim retorno As Boolean = False
         Dim match As DataGridViewCell()
         match = (From row As DataGridViewRow In Me.DataGridViewTurma.Rows From cell As DataGridViewCell In row.Cells Select cell Where cell.ColumnIndex = 2 And cell.Value.Equals(AlunoId)).ToArray()
