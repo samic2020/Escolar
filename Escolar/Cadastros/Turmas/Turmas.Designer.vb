@@ -25,7 +25,6 @@ Partial Class Turmas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Turmas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tSeries = New System.Windows.Forms.ComboBox()
-        Me.tTurma = New System.Windows.Forms.TextBox()
         Me.tTurnos = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -43,6 +42,7 @@ Partial Class Turmas
         Me.btnMatAdc = New System.Windows.Forms.Button()
         Me.btnMatDown = New System.Windows.Forms.Button()
         Me.btnMatUp = New System.Windows.Forms.Button()
+        Me.tTurma = New System.Windows.Forms.TextBox()
         CType(Me.DataGridViewTurmas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewMaterias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -65,13 +65,6 @@ Partial Class Turmas
         Me.tSeries.Size = New System.Drawing.Size(211, 21)
         Me.tSeries.TabIndex = 1
         '
-        'tTurma
-        '
-        Me.tTurma.Location = New System.Drawing.Point(329, 39)
-        Me.tTurma.Name = "tTurma"
-        Me.tTurma.Size = New System.Drawing.Size(86, 20)
-        Me.tTurma.TabIndex = 2
-        '
         'tTurnos
         '
         Me.tTurnos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -93,7 +86,7 @@ Partial Class Turmas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(280, 42)
+        Me.Label3.Location = New System.Drawing.Point(283, 43)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 5
@@ -229,11 +222,19 @@ Partial Class Turmas
         Me.btnMatUp.TabIndex = 270
         Me.btnMatUp.UseVisualStyleBackColor = True
         '
+        'tTurma
+        '
+        Me.tTurma.Location = New System.Drawing.Point(329, 40)
+        Me.tTurma.Name = "tTurma"
+        Me.tTurma.Size = New System.Drawing.Size(86, 20)
+        Me.tTurma.TabIndex = 273
+        '
         'Turmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(554, 401)
+        Me.Controls.Add(Me.tTurma)
         Me.Controls.Add(Me.btnMatDown)
         Me.Controls.Add(Me.btnMatUp)
         Me.Controls.Add(Me.btnMatDel)
@@ -250,7 +251,6 @@ Partial Class Turmas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.tTurnos)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.tTurma)
         Me.Controls.Add(Me.tSeries)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridViewTurmas)
@@ -270,7 +270,6 @@ Partial Class Turmas
 
     Friend WithEvents Label1 As Label
     Friend WithEvents tSeries As ComboBox
-    Friend WithEvents tTurma As TextBox
     Friend WithEvents tTurnos As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -288,4 +287,5 @@ Partial Class Turmas
     Friend WithEvents btnMatAdc As Button
     Friend WithEvents btnMatDown As Button
     Friend WithEvents btnMatUp As Button
+    Friend WithEvents tTurma As TextBox
 End Class

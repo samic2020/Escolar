@@ -1033,7 +1033,7 @@ Public Class Alunos
     End Sub
 
     Private Sub FinanceiroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinanceiroToolStripMenuItem.Click
-        Dim tmp As New Desconto()
+        Dim tmp As New CriaEventos()
         tmp.ShowDialog()
     End Sub
 End Class

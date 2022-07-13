@@ -106,7 +106,8 @@ Public Class Abertura
     Private Sub tTurnos_KeyUp(sender As Object, e As KeyEventArgs) Handles tTurnos.KeyUp
         If e.KeyCode = Keys.Enter And tTurnos.SelectedIndex > -1 Then
             '// 
-            tTurma.Text = ""
+            tTurma.Items.Clear()
+            tTurma.Items.AddRange(getTurmas(tCursos.SelectedItem.ToString, tSeries.SelectedItem.ToString, tTurnos.SelectedItem.ToString))
             tTurma.Enabled = True
 
             tLotacao.Text = "0"
@@ -115,34 +116,30 @@ Public Class Abertura
             btnTurAdc.Enabled = False
             btnTurDel.Enabled = False
 
-            btnAbrir.Enabled = False
-            idTurma = -1
-            DataGridViewTurma.DataSource = ""
-
-            Dim selectSQL As String = "SELECT `id`, `turma`, `lotacao` FROM `turmas` WHERE curso = @curso AND serie = @serie AND turno = @turno LIMIT 1;"
-            Dim conn As MySqlConnection = dbMain.OpenDB(Globais.unidade, Globais.user, Globais.pwd, Globais.databaseName)
-            Dim param As Object()() = {
-                    ({"@curso", tCursos.SelectedItem.ToString}),
-                    ({"@serie", tSeries.SelectedItem.ToString}),
-                    ({"@turno", tTurnos.SelectedItem.ToString})
-                }
-            Dim vrs As MySqlDataReader = dbMain.OpenTable(conn, selectSQL, param)
-
-            Try
-                While vrs.Read
-                    idTurma = vrs.GetInt32("id")
-                    tTurma.Text = vrs.GetString("turma")
-                    tLotacao.Text = vrs.GetInt32("lotacao").ToString
-
-                    btnAbrir.Enabled = True
-                End While
-            Catch ex As Exception
-            End Try
-            dbMain.CloseAll(conn, vrs)
-
-            tAno.Focus()
+            tTurma.Focus()
         End If
     End Sub
+
+    Private Function getTurmas(iCurso As String, iSerie As String, iTurno As String) As Array
+        Dim selectSQL As String = "SELECT `turma` FROM `turmas` WHERE `curso` = @curso AND `serie` = @serie AND `turno` = @turno;"
+        Dim param As Object()() = New Object()() {
+                ({"@curso", iCurso}),
+                ({"@serie", iSerie}),
+                ({"@turno", iTurno})
+            }
+        Dim conn As MySqlConnection = dbMain.OpenDB(Globais.unidade, Globais.user, Globais.pwd, Globais.databaseName)
+        Dim vrs As MySqlDataReader = dbMain.OpenTable(conn, selectSQL, param)
+
+        Dim retorno As New List(Of String)
+        Try
+            While vrs.Read
+                retorno.Add(vrs.GetString("turma"))
+            End While
+        Catch ex As Exception
+        End Try
+        dbMain.CloseAll(conn, vrs)
+        Return retorno.ToArray
+    End Function
 
     Private Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
         TurmaList()
@@ -354,11 +351,6 @@ Public Class Abertura
     End Function
 
     Private Sub tAno_Enter(sender As Object, e As EventArgs) Handles tAno.Enter
-        btnTurAdc.Enabled = False
-        btnTurDel.Enabled = False
-
-        btnAbrir.Enabled = False
-        DataGridViewTurma.DataSource = ""
     End Sub
 
     Private Sub tAno_KeyDown(sender As Object, e As KeyEventArgs) Handles tAno.KeyDown
@@ -375,5 +367,47 @@ Public Class Abertura
 
             btnAbrir.Focus()
         End If
+    End Sub
+
+    Private Sub tTurma_KeyDown(sender As Object, e As KeyEventArgs) Handles tTurma.KeyDown
+        If e.KeyCode = Keys.Enter Then e.SuppressKeyPress = True
+    End Sub
+
+    Private Sub tTurma_KeyUp(sender As Object, e As KeyEventArgs) Handles tTurma.KeyUp
+        If e.KeyCode = Keys.Enter And tTurma.SelectedIndex > -1 Then
+            btnAbrir.Enabled = False
+            idTurma = -1
+            DataGridViewTurma.DataSource = ""
+
+            Dim selectSQL As String = "SELECT `id`, `turma`, `lotacao` FROM `turmas` WHERE curso = @curso AND serie = @serie AND turno = @turno AND turma = @turma LIMIT 1;"
+            Dim conn As MySqlConnection = dbMain.OpenDB(Globais.unidade, Globais.user, Globais.pwd, Globais.databaseName)
+            Dim param As Object()() = {
+                        ({"@curso", tCursos.SelectedItem.ToString}),
+                        ({"@serie", tSeries.SelectedItem.ToString}),
+                        ({"@turno", tTurnos.SelectedItem.ToString}),
+                        ({"@turma", tTurma.SelectedItem.ToString})
+                    }
+            Dim vrs As MySqlDataReader = dbMain.OpenTable(conn, selectSQL, param)
+
+            Try
+                While vrs.Read
+                    idTurma = vrs.GetInt32("id")
+                    tTurma.Text = vrs.GetString("turma")
+                    tLotacao.Text = vrs.GetInt32("lotacao").ToString
+
+                    btnAbrir.Enabled = True
+                End While
+            Catch ex As Exception
+            End Try
+            dbMain.CloseAll(conn, vrs)
+        End If
+    End Sub
+
+    Private Sub tTurma_Enter(sender As Object, e As EventArgs) Handles tTurma.Enter
+        btnTurAdc.Enabled = False
+        btnTurDel.Enabled = False
+
+        btnAbrir.Enabled = False
+        DataGridViewTurma.DataSource = ""
     End Sub
 End Class

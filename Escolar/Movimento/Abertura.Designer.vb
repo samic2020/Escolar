@@ -33,7 +33,6 @@ Partial Class Abertura
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tLotacao = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tTurma = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.tAno = New System.Windows.Forms.NumericUpDown()
         Me.btnAbrir = New System.Windows.Forms.Button()
@@ -44,6 +43,7 @@ Partial Class Abertura
         Me.Label7 = New System.Windows.Forms.Label()
         Me.LotAtual = New System.Windows.Forms.Label()
         Me.VScrollBarTurma = New System.Windows.Forms.VScrollBar()
+        Me.tTurma = New System.Windows.Forms.ComboBox()
         CType(Me.tAno, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewTurma, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -126,14 +126,6 @@ Partial Class Abertura
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 267
         Me.Label3.Text = "Turma:"
-        '
-        'tTurma
-        '
-        Me.tTurma.Location = New System.Drawing.Point(327, 39)
-        Me.tTurma.Name = "tTurma"
-        Me.tTurma.ReadOnly = True
-        Me.tTurma.Size = New System.Drawing.Size(65, 20)
-        Me.tTurma.TabIndex = 266
         '
         'Label5
         '
@@ -228,11 +220,21 @@ Partial Class Abertura
         Me.VScrollBarTurma.Size = New System.Drawing.Size(10, 80)
         Me.VScrollBarTurma.TabIndex = 279
         '
+        'tTurma
+        '
+        Me.tTurma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.tTurma.Enabled = False
+        Me.tTurma.Location = New System.Drawing.Point(327, 39)
+        Me.tTurma.Name = "tTurma"
+        Me.tTurma.Size = New System.Drawing.Size(65, 21)
+        Me.tTurma.TabIndex = 280
+        '
         'Abertura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(632, 368)
+        Me.Controls.Add(Me.tTurma)
         Me.Controls.Add(Me.VScrollBarTurma)
         Me.Controls.Add(Me.LotAtual)
         Me.Controls.Add(Me.Label7)
@@ -245,7 +247,6 @@ Partial Class Abertura
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.tLotacao)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.tTurma)
         Me.Controls.Add(Me.tTurnos)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.tCursos)
@@ -275,7 +276,6 @@ Partial Class Abertura
     Friend WithEvents Label4 As Label
     Friend WithEvents tLotacao As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents tTurma As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents tAno As NumericUpDown
     Friend WithEvents btnAbrir As Button
@@ -286,4 +286,5 @@ Partial Class Abertura
     Friend WithEvents Label7 As Label
     Friend WithEvents LotAtual As Label
     Friend WithEvents VScrollBarTurma As VScrollBar
+    Friend WithEvents tTurma As ComboBox
 End Class

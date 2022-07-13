@@ -118,7 +118,7 @@ Public Class Turmas
     End Sub
 
     Private Sub PopulaDGVTurmasMaterias(idturma As Integer)
-        If idturma < 0 Then Return
+        If idturma <= 0 Then Return
 
         With DataGridViewMaterias
             .DataSource = Nothing
@@ -266,6 +266,8 @@ Public Class Turmas
     End Sub
 
     Private Sub DataGridViewTurmas_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridViewTurmas.SelectionChanged
+        Dim sel As DataGridViewSelectedRowCollection = DataGridViewTurmas.SelectedRows()
+        If sel.Count = 0 Then Return
         Try
             PopulaDGVTurmasMaterias(Val(DataGridViewTurmas.SelectedRows.Item(0).Cells(0).Value))
         Catch ex As Exception

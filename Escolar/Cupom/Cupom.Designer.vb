@@ -38,6 +38,8 @@ Partial Class Cupom
         Me.DataGridViewCupons = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.VScrollBarCupons = New System.Windows.Forms.VScrollBar()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridViewCupons, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -128,9 +130,9 @@ Partial Class Cupom
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(263, 86)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(57, 13)
+        Me.Label5.Size = New System.Drawing.Size(116, 13)
         Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Valido até:"
+        Me.Label5.Text = "Valido até o mesmo dia"
         '
         'descValidade
         '
@@ -142,9 +144,9 @@ Partial Class Cupom
         '
         'BtnGravar
         '
-        Me.BtnGravar.Location = New System.Drawing.Point(314, 109)
+        Me.BtnGravar.Location = New System.Drawing.Point(370, 109)
         Me.BtnGravar.Name = "BtnGravar"
-        Me.BtnGravar.Size = New System.Drawing.Size(111, 23)
+        Me.BtnGravar.Size = New System.Drawing.Size(55, 23)
         Me.BtnGravar.TabIndex = 11
         Me.BtnGravar.Text = "Gravar"
         Me.BtnGravar.UseVisualStyleBackColor = True
@@ -182,11 +184,30 @@ Partial Class Cupom
         Me.VScrollBarCupons.Size = New System.Drawing.Size(10, 80)
         Me.VScrollBarCupons.TabIndex = 282
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(8, 114)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(30, 13)
+        Me.Label7.TabIndex = 283
+        Me.Label7.Text = "Ref.:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(44, 111)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(320, 21)
+        Me.ComboBox1.TabIndex = 284
+        '
         'Cupom
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(437, 323)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.VScrollBarCupons)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.DataGridViewCupons)
@@ -230,4 +251,6 @@ Partial Class Cupom
     Friend WithEvents DataGridViewCupons As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents VScrollBarCupons As VScrollBar
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
